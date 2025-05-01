@@ -138,7 +138,7 @@ const Banner = () => {
           </h1>
 
           {/* Paragraph - Shown below heading on mobile */}
-          <div className="order-2 md:order-1 z-10 w-full md:w-4/12 lg:w-4/12 text-md overflow-hidden">
+          <div className="order-2 md:order-1 z-10 w-full md:w-4/12 lg:w-4/12 text-md overflow-hidden font-semibold">
             <div className="line" ref={(el) => (linesRef.current[0] = el)}>
               Static and dynamic secure code review can prevent
             </div>
