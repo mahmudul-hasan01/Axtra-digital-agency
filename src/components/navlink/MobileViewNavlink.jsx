@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { AiOutlineClose, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import logo from "../../../public/logo-black.webp";
+import logo from "../../assets/logo-black.webp";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import logo from '../../assets/logo-black.webp'
 import { AiOutlineAlignRight, AiOutlineClose } from "react-icons/ai";
 import Navlink from "../../components/navlink/navlink";
 import MobileViewNavlink from "../../components/navlink/MobileViewNavlink";
@@ -13,7 +14,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 bg-white">
       <div className="w-[90%] h-[90px] mx-auto flex justify-between items-center py-6 font-semibold">
         {/* Logo */}
-        <img src="/public/logo-black.webp" alt="Logo" className="h-12" />
+        <img src={logo} alt="Logo" className="h-12" />
 
         {/* Nav Links (visible on xl+) */}
         <div className="xl:flex justify-between items-center w-[70%] hidden">
