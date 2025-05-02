@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 bg-white">
       <div className="w-[90%] h-[90px] mx-auto flex justify-between items-center py-6 font-semibold">
         {/* Logo */}
-        <img src="/logo-black (1).webp" alt="Logo" className="h-12" />
+        <img src="/public/logo-black.webp" alt="Logo" className="h-12" />
 
         {/* Nav Links (visible on xl+) */}
         <div className="xl:flex justify-between items-center w-[70%] hidden">
