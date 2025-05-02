@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import logo from '../../assets/logo-black.webp'
+import logo from "../../assets/logo-black.webp";
 import { AiOutlineAlignRight, AiOutlineClose } from "react-icons/ai";
 import Navlink from "../../components/navlink/navlink";
 import MobileViewNavlink from "../../components/navlink/MobileViewNavlink";
-
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);

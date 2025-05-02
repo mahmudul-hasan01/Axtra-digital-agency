@@ -102,7 +102,7 @@ const MobileViewNavlink = ({ showModal, setShowModal }) => {
                     >
                       <button
                         onClick={() => toggleAccordion(index)}
-                        className="w-full flex justify-between items-center py-4 text-left text-white font-semibold text-4xl"
+                        className="w-full flex justify-between items-center py-4 text-left text-white font-semibold text-xl md:text-2xl"
                       >
                         <span>{item.title}</span>
                         <span className="flex items-center justify-center w-10 h-10 border border-white hover:bg-white hover:text-black transition duration-200">
@@ -114,7 +114,7 @@ const MobileViewNavlink = ({ showModal, setShowModal }) => {
                         </span>
                       </button>
                       {openIndex === index && (
-                        <div className="flex flex-col pl-4 pb-3 gap-2 text-white text-xl">
+                        <div className="flex flex-col pl-4 pb-3 gap-2 text-white">
                           {item.links.map((link, i) => (
                             <Link
                               key={i}
