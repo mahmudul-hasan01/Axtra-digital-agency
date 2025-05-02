@@ -54,8 +54,8 @@ const MobileViewNavlink = ({ showModal, setShowModal }) => {
   return (
     <div>
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
-          <div className="relative text-white bg-black rounded-md w-full h-screen">
+        <div className="fixed inset-0 bg-[#171717] bg-opacity-80 z-50 flex items-center justify-center">
+          <div className="relative text-white bg-[#171717] rounded-md w-full h-screen">
             {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
@@ -93,7 +93,7 @@ const MobileViewNavlink = ({ showModal, setShowModal }) => {
               </div>
 
               {/* Second Div - 7 Columns */}
-              <div className="col-span-12 md:col-span-7 flex bg-black rounded-lg">
+              <div className="col-span-12 md:col-span-7 flex bg-[#171717] rounded-lg">
                 <div className="w-full px-6 pt-[120px]">
                   {items.map((item, index) => (
                     <div
@@ -132,13 +132,13 @@ const MobileViewNavlink = ({ showModal, setShowModal }) => {
               </div>
 
               {/* Third Div - 3 Columns */}
-              <div className="col-span-3  hidden md:flex flex-col justify-start items-center bg-black rounded-lg p-6 gap-6 pt-[150px] space-y-5 lg:space-y-10">
+              <div className="col-span-3  hidden md:flex flex-col justify-start items-center bg-[#171717] rounded-lg p-6 gap-6 pt-[150px] space-y-5 lg:space-y-10">
                 {/* Search Input */}
                 <div className="w-full flex justify-center">
                   <input
                     type="text"
                     placeholder="Search..."
-                    className="w-[100%] lg:w-[80%] p-3 rounded-full text-white bg-black border "
+                    className="w-[100%] lg:w-[80%] p-3 rounded-full text-white bg-[#171717] border "
                   />
                 </div>
 
