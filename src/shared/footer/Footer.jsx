@@ -1,49 +1,127 @@
-import { Link } from "react-router-dom";
-import logo from "../../../public/logo-black (1).webp";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import logo from "../../assets/site-logo-white.webp";
 
 const Footer = () => {
+  const lettersRef = useRef([]);
+  const colors = [
+    "#FFD700",
+    "#FFA500",
+    "#FF7F50",
+    "#FF6B4A",
+    "#FF4969",
+    "#FF1493",
+    "#FF69B4",
+    "#FF1493",
+    "#DA70D6",
+    "#E066FF",
+  ];
+
+  useEffect(() => {
+    const letters = lettersRef.current;
+
+    letters.forEach((letter, index) => {
+      const tl = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1,
+      });
+
+      tl.to(letter, {
+        y: -100,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+        .to(letter, {
+          y: 0,
+          duration: 0.5,
+          ease: "bounce.out",
+        })
+        .to(
+          letter,
+          {
+            color: colors[index % colors.length],
+            duration: 0.6,
+            ease: "none",
+          },
+          "-=0.6"
+        );
+      tl.delay(index * 0.1);
+    });
+
+    return () => {
+      // Cleanup animations
+      letters.forEach((letter) => {
+        gsap.killTweensOf(letter);
+      });
+    };
+  }, []);
+
   return (
-    <div className="bg-black w-full h-full md:min-h-screen text-white  py-14 md:py-0 space-y-7 md:space-y-0">
-      {/* Side 1 */}
-      <div className="flex flex-col h-full px-5 md:px-10  md:flex-row items-center space-y-8 md:space-y-0">
-        <div className="max-w-md w-[100%] md:w-[40%] space-y-10">
-          {/* Invert the logo to white */}
-          <img src={logo} alt="Logo" className="invert w-32" />
-          <p className="text-gray-300 w-[100%] md:w-[70%]">
-            When do they work well, and when do they fail us? And finally, when
-            do we actually need them — and how can we avoid them.
+    <div className={` text-white px-5 lg:px-10 bg-[#171717]`}>
+      <div className="flex flex-col md:flex-row md:py-0 py-10 justify-between items-center border-b border-gray-700  ">
+        {/* Left Section */}
+        <div className="">
+          <div className="mb-6">
+            <img src={logo} alt="" />
+          </div>
+          <p className="text-gray-400 max-w-xs text-sm leading-relaxed">
+            When do they work well, and when do they on us and finally, when do
+            we actually need how can we avoid them.
           </p>
         </div>
-        <div className="w-[100%] md:w-[10%] h-full flex flex-col items-center  justify-start">
-          <button className="w-full md:w-32 lg:w-48 h-28 border-t md:border-t-0 border-b border-l border-r hover:bg-white hover:text-black uppercase font-semibold">
-            facebook
-          </button>
-          <button className="w-full md:w-32 lg:w-48 h-28 border-b border-l border-r hover:bg-white hover:text-black uppercase font-semibold">
-            Twitter
-          </button>
-          <button className="w-full md:w-32 lg:w-48 h-28 border-b border-l border-r hover:bg-white hover:text-black uppercase font-semibold">
-            Linkedin
-          </button>
-          <button className="w-full md:w-32 lg:w-48 h-28 border-b border-l border-r hover:bg-white hover:text-black uppercase font-semibold">
-            Instagram
-          </button>
-        </div>
-        <div className="w-[100%] md:w-[50%] text-5xl md:text-6xl lg:text-8xl flex justify-center items-center">
-          <p>Let’s talk</p>
-        </div>
-      </div>
-      <hr className="w-[100%]" />
-      {/* Side 2 */}
-      <div className="flex flex-col-reverse gap-4 px-10 py-0 md:py-5 lg:flex-row justify-between items-center lg:h-[150px]">
-        <div className="text-center lg:text-start">
-          © 2022 - 2025 | Alrights reserved <br /> by Wealcoder
+
+        {/* Center Social Links */}
+        <div className="text-center mt-20 md:mt-0">
+          {["FACEBOOK", "TWITTER", "LINKEDIN", "INSTAGRAM"].map((social) => (
+            <div
+              key={social}
+              className="py-10 border border-zinc-800 hover:bg-white hover:text-black transform duration-300 transition-opacity cursor-pointer w-80 md:w-48 "
+            >
+              {social}
+            </div>
+          ))}
         </div>
 
-        <div className="flex gap-4 lg:gap-20 pl-4 pt-2 font-semibold">
-          <Link to="/blog-v2">ABOUT</Link>
-          <Link to="/blog-v2-dark">CONTACT</Link>
-          <Link to="/category">CAREER</Link>
-          <Link to="/category-dark">FAQS </Link>
+        {/* Right Section - Let's Talk */}
+        <div className="">
+          <h1 className="text-6xl lg:text-9xl font-bold whitespace-nowrap md:mt-0 mt-28">
+            {"LET'S TALK".split("").map((letter, index) => (
+              <span
+                key={index}
+                ref={(el) => (lettersRef.current[index] = el)}
+                className="inline-block"
+                style={{ color: colors[index % colors.length] }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </span>
+            ))}
+          </h1>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+
+      <div className="py-16">
+        <div className="flex flex-col lg:flex-row justify-between items-center">
+          {/* Copyright text - show second on mobile */}
+          <div className="text-md order-2 lg:order-none mt-10 md:mt-0">
+            © 2022 - {new Date().getFullYear()} | All rights reserved
+            <br className="lg:hidden" />
+            {/* by Wealcoder */}
+          </div>
+
+          {/* Navigation menu - show first on mobile */}
+          <nav className="flex flex-wrap gap-8   order-1 lg:order-none">
+            {["ABOUT US", "CONTACT", "CAREER", "FAQS"].map((item, index) => (
+              <div key={item} className="relative group">
+                <span className="text-md cursor-pointer hover:text-gray-300 transition-colors">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </nav>
         </div>
       </div>
     </div>
